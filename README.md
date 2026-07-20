@@ -33,7 +33,7 @@ The repository includes:
 | 12 | DOUT (MISO) |
 | 13 | SCK |
 | 2 | DRDY |
-| 6 | RESET |
+| 3 | RESET |
 
 ### Board 2 (Secondary ADS1261)
 
