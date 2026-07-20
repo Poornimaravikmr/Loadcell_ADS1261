@@ -7,10 +7,10 @@ This repository contains firmware and Python utilities for **load cell data acqu
 The repository includes:
 
 - Firmware for **single-board** and **dual-board** COP acquisition systems.
-- A Python-based **calibration** for determining load cell calibration coefficients using known reference weights, automatically updating the firmware, and saving calibration results to Excel. :contentReference[oaicite:0]{index=0}
+- A Python-based **calibration** for determining load cell calibration coefficients using known reference weights, automatically updating the firmware, and saving calibration results to Excel. 
 - ADS1261 Chip diagnostic firmware for verifying communication with the ADC.
 - Calibration Code for Loadcell.
-- A real-time Python application for **Center of Pressure (COP)** visualization from one or two acquisition boards. :contentReference[oaicite:1]{index=1}
+- A real-time Python application for **Center of Pressure (COP)** visualization from one or two acquisition boards. 
 
 ---
 
@@ -117,7 +117,7 @@ Features include:
 - Displays total weight
 - Displays individual load cell forces
 - Live serial communication with the Teensy
-- Graphical force plate representation with COP marker :contentReference[oaicite:3]{index=3}
+- Graphical force plate representation with COP marker 
 
 ---
 
