@@ -51,7 +51,7 @@ Both ADS1261 boards share the same SPI communication lines:
 |---------|---------|---------|
 | CS | Pin 10 | Pin 0 |
 | DRDY | Pin 2 | Pin 4 |
-| RESET | Pin 6 | Pin 5 |
+| RESET | Pin 3 | Pin 5 |
 
 ---
 
@@ -61,6 +61,7 @@ Both ADS1261 boards share the same SPI communication lines:
 ## Calibration/
 
 Contains the Arduino firmware and Python calibration software for load cell calibration.
+
 ---
 
 ## OneBoard_Dynamic/
