@@ -78,6 +78,46 @@ float GetLCoff1(uint8_t ainp, uint8_t ainn) {
   return (float)((double)acc / (double)got);
 }
 
+float GetLCoff2(uint8_t ainp, uint8_t ainn) {
+  detachInterrupt(digitalPinToInterrupt(DRDY2_PIN));
+
+  spi2StartTxn();
+  selectDiff2(ainp, ainn);
+
+  noInterrupts();
+  offcap_p2 = ainp; offcap_n2 = ainn;
+  offcap_acc2 = 0;
+  offcap_got2 = 0;
+  offcap_need2 = 2400;
+  offcap_done2 = false;
+  offcap2 = true;
+  interrupts();
+
+  attachInterrupt(digitalPinToInterrupt(DRDY2_PIN), DRDY2_ISR, FALLING);
+  ads2_start();
+
+  const unsigned long t0 = millis();
+  while (!offcap_done2) {
+    if (millis() - t0 > 2000UL) break;
+    yield();
+  }
+
+  ads2_stop();
+  detachInterrupt(digitalPinToInterrupt(DRDY2_PIN));
+
+  noInterrupts();
+  bool done = offcap_done2;
+  int64_t acc = offcap_acc2;
+  uint16_t got = offcap_got2;
+  offcap2 = false;
+  interrupts();
+
+  spi2EndTxn();
+
+  if (!done || got == 0) return 0.0f;
+  return (float)((double)acc / (double)got);
+}
+
 //----------------------------------------------------------------------------------------
 
 void UpdateCOP0(float F1, float F2, float F3, float F4) {
@@ -108,11 +148,28 @@ void UpdateCOP1(float F5, float F6, float F7, float F8) {
   }
 }
 
+void UpdateCOP2(float F9, float F10, float F11, float F12) {
+ 
+  WB3 = F9 + F10 + F11 + F12;
+
+  if (WB3 > 1.0f) {
+    COPy_B3.fval = (((F9 + F10) - (F11 + F12)) / WB3) * L_HALF;
+    COPx_B3.fval = (((F10 + F11) - (F9 + F12)) / WB3) * B_HALF;
+    
+  } else {
+    COPx_B3.fval = 0.0f;
+    COPy_B3.fval = 0.0f;
+  }
+}
+
 void InitSensorVals() {
   f1.fval = 0.0f; f2.fval = 0.0f; f3.fval = 0.0f; f4.fval = 0.0f;
   f5.fval = 0.0f; f6.fval = 0.0f; f7.fval = 0.0f; f8.fval = 0.0f;
+  f9.fval = 0.0f; f10.fval = 0.0f; f11.fval = 0.0f; f12.fval = 0.0f;
   COPx_B1.fval = 0.0f; COPy_B1.fval = 0.0f;
   COPx_B2.fval = 0.0f; COPy_B2.fval = 0.0f;
+  COPx_B3.fval = 0.0f; COPy_B3.fval = 0.0f;
   WB1 = 0.0f; 
   WB2 = 0.0f; 
+  WB3 = 0.0f; 
 }

@@ -2,7 +2,7 @@ void writeSensorStream() {
   outPayload.newPacket();
   outPayload.add(COPx_B1.fval); outPayload.add(COPy_B1.fval); outPayload.add(WB1); 
   outPayload.add(COPx_B2.fval); outPayload.add(COPy_B2.fval); outPayload.add(WB2); 
-  // outPayload.add(COPx_B3.fval); outPayload.add(COPy_B3.fval); outPayload.add(WB3); 
+  outPayload.add(COPx_B3.fval); outPayload.add(COPy_B3.fval); outPayload.add(WB3); 
   outPayload.add((float)packetCounter); outPayload.add(Timestamp);
 
   const uint8_t payload_bytes = (uint8_t)(outPayload.sz() * 4);  // 8 floats * 4 = 32 bytes

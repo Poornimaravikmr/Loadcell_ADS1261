@@ -34,16 +34,15 @@ extern volatile bool data_ready_to_process;
 
 
 
-float gainB11 = 1.0 / 13661.32;  //16
-float gainB12 = 1.0 / 13786.49;  //10
-float gainB13 = 1.0 / 13938.09;  //5
-float gainB14 = 1.0 / 13552.59;  //18
+// float gainB11 = 1.0 / 13581.32;  //16
+// float gainB12 = 1.0 / 13606.49;  //10
+// float gainB13 = 1.0 / 13852.59;  //18
+// float gainB14 = 1.0 / 13638.09;  //5  
 
-
-// float gainB11 = 1.0 / 14022.19;  //14
-// float gainB12 = 1.0 / 14043.36;  //12
-// float gainB13 = 1.0 / 14161.15;  //11
-// float gainB14 = 1.0 / 14179.12;  //15
+float gainB11 = 1.0 / 13922.19;  //14
+float gainB12 = 1.0 / 14143.36;  //12
+float gainB13 = 1.0 / 13761.15;  //11
+float gainB14 = 1.0 / 14179.12;  //15
 
 
 

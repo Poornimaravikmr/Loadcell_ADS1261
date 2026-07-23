@@ -10,10 +10,10 @@ union FloatBytes_ud
   byte fbytes[4];
 };
 
-FloatBytes_ud f1, f2, f3, f4, f5, f6, f7, f8;
-FloatBytes_ud COPx_B1, COPy_B1, COPx_B2, COPy_B2; 
-float Lc1Off =0.0f, Lc2Off =0.0f, Lc3Off =0.0f, Lc4Off =0.0f, Lc5Off =0.0f, Lc6Off =0.0f, Lc7Off =0.0f, Lc8Off =0.0f;
-float WB1 =0.0f, WB2 =0.0f;
+FloatBytes_ud f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12;
+FloatBytes_ud COPx_B1, COPy_B1, COPx_B2, COPy_B2, COPx_B3, COPy_B3; 
+float Lc1Off =0.0f, Lc2Off =0.0f, Lc3Off =0.0f, Lc4Off =0.0f, Lc5Off =0.0f, Lc6Off =0.0f, Lc7Off =0.0f, Lc8Off =0.0f, Lc9Off =0.0f, Lc10Off =0.0f, Lc11Off =0.0f, Lc12Off =0.0f;
+float WB1 =0.0f, WB2 =0.0f, WB3 =0.0f;
 unsigned long packetCounter = 0 ;
 double Timestamp =0;
 
@@ -25,10 +25,12 @@ const uint8_t ADC0_MUX_P_PINS[] = {1, 3, 5, 7};
 const uint8_t ADC0_MUX_N_PINS[] = {2, 4, 6, 8};
 const uint8_t ADC1_MUX_P_PINS[] = {1, 3, 5, 7};
 const uint8_t ADC1_MUX_N_PINS[] = {2, 4, 6, 8};
+const uint8_t ADC2_MUX_P_PINS[] = {1, 3, 5, 7};
+const uint8_t ADC2_MUX_N_PINS[] = {2, 4, 6, 8};
 const uint8_t NUM_CHANNELS_PER_ADC = 4;
-const uint8_t TOTAL_CHANNELS = 8;
+const uint8_t TOTAL_CHANNELS = 12;
 
-const uint16_t BUFFER_SIZE = 512;
+const uint16_t BUFFER_SIZE = 768;
 extern volatile int32_t adc_buffer[TOTAL_CHANNELS][BUFFER_SIZE];
 extern volatile uint16_t buffer_write_index;
 extern volatile uint16_t buffer_read_index;
@@ -43,6 +45,11 @@ float gainB21 = 1.0 / 13922.19;  //14
 float gainB22 = 1.0 / 14143.36;  //12
 float gainB23 = 1.0 / 13761.15;  //11
 float gainB24 = 1.0 / 14179.12;  //15
+
+float gainB31 = 1.0 / 13922.19;  
+float gainB32 = 1.0 / 14143.36;  
+float gainB33 = 1.0 / 13761.15;  
+float gainB34 = 1.0 / 14179.12;  
 
 
 float L_HALF = 65.8 / 2;

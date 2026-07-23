@@ -6,7 +6,7 @@
 
 SPISettings spiSettings(5000000, MSBFIRST, SPI_MODE1); // 1 MHz
 
-float gainS = 1.0 / 13938.09; //put calibration factor in denominator
+float gainS = 1.0 / 12953.0685; //put calibration factor in denominator
 float fval   = 0.0;
 float LCoff = 0.0;
 
