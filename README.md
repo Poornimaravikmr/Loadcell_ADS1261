@@ -58,7 +58,7 @@ The second and third ADS1261 shares the same SPI bus as Board 1.
 ### Independent Control Pins
 
 | Signal | Board 1 | Board 2 | Board 3 |
-|---------|---------|---------|
+|---------|---------|---------|---------|
 | CS | Pin 10 | Pin 0 | Pin 44 |
 | DRDY | Pin 2 | Pin 4 | Pin 6 |
 | RESET | Pin 3 | Pin 5 | Pin 7 |
