@@ -43,9 +43,9 @@ The repository includes:
 
 ---
 
-## Board 2 (Secondary ADS1261)
+## Board 2 & Board 3
 
-The second ADS1261 shares the same SPI bus as Board 1.
+The second and third ADS1261 shares the same SPI bus as Board 1.
 
 ### Shared SPI Connections
 
@@ -57,11 +57,11 @@ The second ADS1261 shares the same SPI bus as Board 1.
 
 ### Independent Control Pins
 
-| Signal | Board 1 | Board 2 |
+| Signal | Board 1 | Board 2 | Board 3 |
 |---------|---------|---------|
-| CS | Pin 10 | Pin 0 |
-| DRDY | Pin 2 | Pin 4 |
-| RESET | Pin 3 | Pin 5 |
+| CS | Pin 10 | Pin 0 | Pin 44 |
+| DRDY | Pin 2 | Pin 4 | Pin 6 |
+| RESET | Pin 3 | Pin 5 | Pin 7 |
 
 ---
 
